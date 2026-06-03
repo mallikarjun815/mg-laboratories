@@ -157,8 +157,18 @@ export default function Navbar() {
             isOpen ? "translate-x-0" : "translate-x-full"
           }`}
         >
-          <div className="pt-16 sm:pt-20 pb-6 h-full overflow-y-auto">
-            <div className="px-4 sm:px-6 space-y-1">
+          {/* Close button fixed at top-right of sidebar */}
+          <div className="sticky top-0 z-10 flex items-center justify-end px-4 sm:px-6 pt-4 sm:pt-5 pb-2 bg-white">
+            <button
+              onClick={() => setIsOpen(false)}
+              className="inline-flex items-center justify-center p-2 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-600 hover:text-slate-900 transition-all duration-300"
+              aria-label="Close menu"
+            >
+              <X className="h-5 w-5 sm:h-6 sm:w-6" />
+            </button>
+          </div>
+          <div className="pb-6 h-full overflow-y-auto">
+            <div className="px-4 sm:px-6 pt-2 space-y-1">
               {navItems.map((item) => {
                 const isActive = isActiveLink(item.href);
                 if (item.dropdown) {
