@@ -43,8 +43,28 @@ export default function Navbar() {
   }, [pathname]);
 
   useEffect(() => {
-    document.body.style.overflow = isOpen ? "hidden" : "";
-    return () => { document.body.style.overflow = ""; };
+    if (isOpen) {
+      const scrollY = window.scrollY;
+      document.body.style.position = "fixed";
+      document.body.style.top = `-${scrollY}px`;
+      document.body.style.width = "100%";
+      document.body.dataset.scrollY = String(scrollY);
+    } else {
+      const scrollY = Number(document.body.dataset.scrollY || "0");
+      document.body.style.position = "";
+      document.body.style.top = "";
+      document.body.style.width = "";
+      delete document.body.dataset.scrollY;
+      window.scrollTo(0, scrollY);
+    }
+    return () => {
+      const scrollY = Number(document.body.dataset.scrollY || "0");
+      document.body.style.position = "";
+      document.body.style.top = "";
+      document.body.style.width = "";
+      delete document.body.dataset.scrollY;
+      window.scrollTo(0, scrollY);
+    };
   }, [isOpen]);
 
   const isActiveLink = (href: string) =>
