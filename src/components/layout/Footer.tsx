@@ -37,24 +37,24 @@ export default function Footer() {
             </h3>
             <ul className="space-y-3.5 text-sm">
               <li>
-                <Link href="/" className="text-slate-400 hover:text-emerald-400 transition-colors">
+                <HashLink href="/" className="text-slate-400 hover:text-emerald-400 transition-colors">
                   Home
-                </Link>
+                </HashLink>
               </li>
               <li>
-                <Link href="/about" className="text-slate-400 hover:text-emerald-400 transition-colors">
+                <HashLink href="/about" className="text-slate-400 hover:text-emerald-400 transition-colors">
                   About Us
-                </Link>
+                </HashLink>
               </li>
               <li>
-                <Link href="/products" className="text-slate-400 hover:text-emerald-400 transition-colors">
+                <HashLink href="/products" className="text-slate-400 hover:text-emerald-400 transition-colors">
                   Our Products
-                </Link>
+                </HashLink>
               </li>
               <li>
-                <Link href="/contact" className="text-slate-400 hover:text-emerald-400 transition-colors">
+                <HashLink href="/contact" className="text-slate-400 hover:text-emerald-400 transition-colors">
                   Contact Us
-                </Link>
+                </HashLink>
               </li>
             </ul>
           </div>

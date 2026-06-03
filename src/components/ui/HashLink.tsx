@@ -23,11 +23,16 @@ export default function HashLink({
       const currentPath = pathname.replace(/\/$/, "");
       const targetPath = path.replace(/\/$/, "");
 
-      if (hash && currentPath === targetPath) {
+      if (currentPath === targetPath) {
         e.preventDefault();
-        const el = document.getElementById(hash);
-        if (el) {
-          el.scrollIntoView({ behavior: "smooth", block: "start" });
+        if (hash) {
+          const el = document.getElementById(hash);
+          if (el) {
+            el.scrollIntoView({ behavior: "smooth", block: "start" });
+            window.history.pushState(null, "", href);
+          }
+        } else {
+          window.scrollTo({ top: 0, behavior: "smooth" });
           window.history.pushState(null, "", href);
         }
       }
