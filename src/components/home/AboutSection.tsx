@@ -18,7 +18,7 @@ export default function AboutSection() {
             <div className="rounded-2xl overflow-hidden shadow-xl">
               <img
                 src="/AboutImage2.png"
-                alt="MG Laboratories Healthcare"
+                alt="MG Laboratories healthcare facility and products"
                 className="w-full h-[300px] sm:h-[400px] lg:h-[500px] object-cover"
               />
             </div>

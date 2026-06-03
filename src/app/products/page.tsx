@@ -9,7 +9,37 @@ import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "Products | MG Laboratories Private Limited",
-  description: "Explore the clinical profiles of Nitomin, Emthik, Endorelief, and Adipolin. We are addressing lifestyle challenges and disorders through Niche Nutritional Supplements.",
+  description:
+    "Explore the clinical profiles of Nitomin, Emthik, Endorelief, and Adipolin — our niche nutritional supplements addressing PCOS, thin endometrium, hormonal imbalance, and metabolic wellness.",
+  keywords: [
+    "Nitomin PCOS supplement", "Emthik endometrium support",
+    "Endorelief estrogen regulation", "Adipolin metabolic support",
+    "women's health products India", "gynecology supplements Pune",
+  ],
+  openGraph: {
+    title: "Products | MG Laboratories Private Limited",
+    description:
+      "Nitomin, Emthik, Endorelief, and Adipolin — niche nutritional supplements for PCOS, endometrial health, hormonal balance, and metabolic wellness.",
+    url: "https://mglaboratories.com/products",
+    images: [
+      {
+        url: "/products_banner.png",
+        width: 1200,
+        height: 630,
+        alt: "MG Laboratories product portfolio",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Products | MG Laboratories Private Limited",
+    description:
+      "Nitomin, Emthik, Endorelief, and Adipolin — niche nutritional supplements for women's health.",
+    images: ["/products_banner.png"],
+  },
+  alternates: {
+    canonical: "https://mglaboratories.com/products",
+  },
 };
 
 const iconMap = { Pill, Sparkles, HeartPulse, Shield } as const;
