@@ -27,6 +27,9 @@ export const metadata: Metadata = {
   authors: [{ name: "MG Laboratories Private Limited" }],
   creator: "MG Laboratories Private Limited",
   publisher: "MG Laboratories Private Limited",
+  verification: {
+    google: "j3nwPX8nQSN_eDMET88VT_ieKo3ZLKXkWttIEOqcLHQ",
+  },
   formatDetection: {
     telephone: true,
     email: true,
