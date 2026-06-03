@@ -73,7 +73,7 @@ export default function Navbar() {
   return (
     <>
       <nav
-        className={`sticky top-0 z-50 transition-all duration-300 w-full overflow-x-hidden ${
+        className={`sticky top-0 z-50 transition-all duration-300 w-full ${
           isScrolled
             ? "bg-white/95 backdrop-blur-md shadow-md border-b border-slate-100 py-2 sm:py-3"
             : "bg-white py-3 sm:py-4 border-b border-slate-100"
@@ -107,7 +107,7 @@ export default function Navbar() {
                         <ChevronDown className="w-3.5 h-3.5" />
                       </Link>
                       <div
-                        className={`absolute left-0 mt-2 w-64 bg-white border border-slate-100 rounded-lg shadow-xl py-2 transform transition-all duration-300 origin-top-left ${
+                        className={`absolute left-0 mt-2 w-64 bg-white border border-slate-100 rounded-lg shadow-xl py-2 transform transition-all duration-300 origin-top-left z-[100] ${
                           activeDropdown === item.name
                             ? "opacity-100 translate-y-0 scale-100 pointer-events-auto"
                             : "opacity-0 -translate-y-2 scale-95 pointer-events-none"
