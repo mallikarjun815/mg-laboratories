@@ -5,6 +5,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Menu, X, ChevronDown } from "lucide-react";
 import Logo from "./Logo";
+import HashLink from "@/components/ui/HashLink";
 
 const navItems = [
   { name: "Home", href: "/" },
@@ -92,15 +93,15 @@ export default function Navbar() {
                             : "opacity-0 -translate-y-2 scale-95 pointer-events-none"
                         }`}
                       >
-                        {item.dropdown.map((subItem) => (
-                          <Link
-                            key={subItem.name}
-                            href={subItem.href}
-                            className="block px-4 py-2 text-xs font-medium text-slate-700 hover:bg-slate-50 hover:text-[#1a3c6e] transition-colors"
-                          >
-                            {subItem.name}
-                          </Link>
-                        ))}
+                      {item.dropdown.map((subItem) => (
+                        <HashLink
+                          key={subItem.name}
+                          href={subItem.href}
+                          className="block px-4 py-2 text-xs font-medium text-slate-700 hover:bg-slate-50 hover:text-[#1a3c6e] transition-colors"
+                        >
+                          {subItem.name}
+                        </HashLink>
+                      ))}
                       </div>
                     </div>
                   );
@@ -186,14 +187,14 @@ export default function Navbar() {
                       </Link>
                       <div className="pl-3 sm:pl-4 mt-1 space-y-0.5 border-l-2 border-slate-100 ml-5 sm:ml-6">
                         {item.dropdown.map((subItem) => (
-                          <Link
+                          <HashLink
                             key={subItem.name}
                             href={subItem.href}
                             onClick={() => setIsOpen(false)}
                             className="block py-2.5 px-3 sm:px-4 text-sm font-medium text-slate-600 hover:text-emerald-600 hover:bg-emerald-50 rounded-lg transition-colors"
                           >
                             {subItem.name}
-                          </Link>
+                          </HashLink>
                         ))}
                       </div>
                     </div>

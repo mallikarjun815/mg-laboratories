@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { Phone, Mail, MapPin, Award } from "lucide-react";
 import Logo from "./Logo";
+import HashLink from "@/components/ui/HashLink";
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -65,28 +66,28 @@ export default function Footer() {
             </h3>
             <ul className="space-y-3.5 text-sm">
               <li>
-                <Link href="/products#nitomin" className="hover:text-emerald-400 transition-colors flex justify-between">
+                <HashLink href="/products#nitomin" className="hover:text-emerald-400 transition-colors flex justify-between">
                   <span className="font-medium text-slate-300 hover:text-emerald-400">Nitomin</span>
                   <span className="text-xs text-slate-500">PCOS</span>
-                </Link>
+                </HashLink>
               </li>
               <li>
-                <Link href="/products#emthik" className="hover:text-emerald-400 transition-colors flex justify-between">
+                <HashLink href="/products#emthik" className="hover:text-emerald-400 transition-colors flex justify-between">
                   <span className="font-medium text-slate-300 hover:text-emerald-400">Emthik</span>
                   <span className="text-xs text-slate-500">Endometrium</span>
-                </Link>
+                </HashLink>
               </li>
               <li>
-                <Link href="/products#endorelief" className="hover:text-emerald-400 transition-colors flex justify-between">
+                <HashLink href="/products#endorelief" className="hover:text-emerald-400 transition-colors flex justify-between">
                   <span className="font-medium text-slate-300 hover:text-emerald-400">Endorelief</span>
                   <span className="text-xs text-slate-500">Estrogen</span>
-                </Link>
+                </HashLink>
               </li>
               <li>
-                <Link href="/products#adipolin" className="hover:text-emerald-400 transition-colors flex justify-between">
+                <HashLink href="/products#adipolin" className="hover:text-emerald-400 transition-colors flex justify-between">
                   <span className="font-medium text-slate-300 hover:text-emerald-400">Adipolin</span>
                   <span className="text-xs text-slate-500">Metabolic</span>
-                </Link>
+                </HashLink>
               </li>
             </ul>
           </div>
