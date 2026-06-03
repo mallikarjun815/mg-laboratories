@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 
@@ -20,6 +20,12 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://mglaboratories.com"),
 };
 
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 5,
+};
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -27,7 +33,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${inter.variable} scroll-smooth`}>
-      <body className="min-h-full flex flex-col antialiased bg-white text-slate-900 overflow-x-hidden">
+      <body className="min-h-full flex flex-col antialiased bg-white text-slate-900 overflow-x-hidden max-w-[100vw]">
         {children}
       </body>
     </html>
