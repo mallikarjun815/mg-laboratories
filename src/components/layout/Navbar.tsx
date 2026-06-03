@@ -52,20 +52,20 @@ export default function Navbar() {
   return (
     <>
       <nav
-        className={`sticky top-0 z-50 transition-all duration-300 w-full ${
+        className={`sticky top-0 z-50 transition-all duration-300 w-full overflow-x-hidden ${
           isScrolled
-            ? "bg-white/95 backdrop-blur-md shadow-md border-b border-slate-100 py-3"
-            : "bg-white py-4 border-b border-slate-100"
+            ? "bg-white/95 backdrop-blur-md shadow-md border-b border-slate-100 py-2 sm:py-3"
+            : "bg-white py-3 sm:py-4 border-b border-slate-100"
         }`}
       >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between h-16">
+        <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
+          <div className="flex items-center justify-between">
             <Link href="/" className="flex-shrink-0 flex items-center">
-              <Logo className="h-10 w-10" />
+              <Logo className="h-8 w-8 sm:h-10 sm:w-10" />
             </Link>
 
             {/* Desktop Navigation */}
-            <div className="hidden md:flex items-center space-x-8">
+            <div className="hidden md:flex items-center space-x-6 lg:space-x-8">
               {navItems.map((item) => {
                 const isActive = isActiveLink(item.href);
                 if (item.dropdown) {
@@ -126,26 +126,25 @@ export default function Navbar() {
             </div>
 
             {/* Mobile Menu Button */}
-            <div className="flex md:hidden">
+            <div className="flex md:hidden flex-shrink-0">
               <button
                 onClick={() => setIsOpen(!isOpen)}
-                className="relative z-50 inline-flex items-center justify-center p-2 rounded-md text-slate-700 hover:text-[#1a3c6e] transition-colors"
+                className="inline-flex items-center justify-center p-1.5 sm:p-2 rounded-md text-slate-700 hover:text-[#1a3c6e] transition-colors"
                 aria-label={isOpen ? "Close menu" : "Open menu"}
               >
-                {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+                {isOpen ? <X className="h-5 w-5 sm:h-6 sm:w-6" /> : <Menu className="h-5 w-5 sm:h-6 sm:w-6" />}
               </button>
             </div>
           </div>
         </div>
       </nav>
 
-      {/* Mobile Slide-in Sidebar (outside nav to avoid z-index stacking) */}
+      {/* Mobile Slide-in Sidebar */}
       <div
         className={`md:hidden fixed inset-0 z-[60] transition-all duration-500 ${
           isOpen ? "pointer-events-auto" : "pointer-events-none"
         }`}
       >
-        {/* Backdrop */}
         <div
           className={`absolute inset-0 bg-black/50 transition-opacity duration-500 ${
             isOpen ? "opacity-100" : "opacity-0"
@@ -153,36 +152,35 @@ export default function Navbar() {
           onClick={() => setIsOpen(false)}
         />
 
-        {/* Sidebar */}
         <div
-          className={`absolute top-0 right-0 h-full w-72 max-w-[85vw] bg-white shadow-2xl transform transition-all duration-500 ${
+          className={`absolute top-0 right-0 h-full w-full max-w-xs bg-white shadow-2xl transform transition-all duration-500 ${
             isOpen ? "translate-x-0" : "translate-x-full"
           }`}
         >
-          <div className="pt-20 pb-6 h-full overflow-y-auto">
-            <div className="px-6 space-y-1">
+          <div className="pt-16 sm:pt-20 pb-6 h-full overflow-y-auto">
+            <div className="px-4 sm:px-6 space-y-1">
               {navItems.map((item) => {
                 const isActive = isActiveLink(item.href);
                 if (item.dropdown) {
                   return (
-                    <div key={item.name} className="py-2">
+                    <div key={item.name} className="py-1.5">
                       <Link
                         href={item.href}
                         onClick={() => setIsOpen(false)}
-                        className={`flex items-center justify-between py-3 px-4 rounded-xl text-sm font-bold uppercase tracking-wider transition-colors ${
+                        className={`flex items-center justify-between py-3 px-3 sm:px-4 rounded-xl text-sm font-bold uppercase tracking-wider transition-colors ${
                           isActive ? "bg-emerald-50 text-emerald-600" : "text-slate-800 hover:bg-slate-50"
                         }`}
                       >
                         {item.name}
-                        <ChevronDown className="w-4 h-4 text-slate-400" />
+                        <ChevronDown className="w-4 h-4 text-slate-400 flex-shrink-0" />
                       </Link>
-                      <div className="pl-4 mt-1 space-y-0.5 border-l-2 border-slate-100 ml-6">
+                      <div className="pl-3 sm:pl-4 mt-1 space-y-0.5 border-l-2 border-slate-100 ml-5 sm:ml-6">
                         {item.dropdown.map((subItem) => (
                           <Link
                             key={subItem.name}
                             href={subItem.href}
                             onClick={() => setIsOpen(false)}
-                            className="block py-2.5 px-4 text-sm font-medium text-slate-600 hover:text-emerald-600 hover:bg-emerald-50 rounded-lg transition-colors"
+                            className="block py-2.5 px-3 sm:px-4 text-sm font-medium text-slate-600 hover:text-emerald-600 hover:bg-emerald-50 rounded-lg transition-colors"
                           >
                             {subItem.name}
                           </Link>
@@ -196,7 +194,7 @@ export default function Navbar() {
                     key={item.name}
                     href={item.href}
                     onClick={() => setIsOpen(false)}
-                    className={`block py-3 px-4 rounded-xl text-sm font-bold uppercase tracking-wider transition-colors ${
+                    className={`block py-3 px-3 sm:px-4 rounded-xl text-sm font-bold uppercase tracking-wider transition-colors ${
                       isActive ? "bg-emerald-50 text-emerald-600" : "text-slate-800 hover:bg-slate-50"
                     }`}
                   >
@@ -206,7 +204,7 @@ export default function Navbar() {
               })}
             </div>
 
-            <div className="px-6 mt-6">
+            <div className="px-4 sm:px-6 mt-6">
               <Link
                 href="/contact#get-in-touch"
                 onClick={() => setIsOpen(false)}

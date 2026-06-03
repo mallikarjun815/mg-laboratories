@@ -32,8 +32,8 @@ export default function Logo({ className = "h-10", inverted }: { className?: str
         />
       </svg>
       
-      {/* Brand Text */}
-      <div className="flex flex-col">
+      {/* Brand Text — hidden on very small screens */}
+      <div className="hidden sm:flex flex-col">
         <span className={`text-xl font-bold tracking-tight leading-none uppercase ${inverted ? "text-white" : "text-[#1a3c6e]"}`}>
           MG Laboratories
         </span>
