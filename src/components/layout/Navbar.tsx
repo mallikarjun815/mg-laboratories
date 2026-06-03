@@ -50,96 +50,98 @@ export default function Navbar() {
     href === "/" ? pathname === "/" : pathname.startsWith(href);
 
   return (
-    <nav
-      className={`sticky top-0 z-50 transition-all duration-300 w-full ${
-        isScrolled
-          ? "bg-white/95 backdrop-blur-md shadow-md border-b border-slate-100 py-3"
-          : "bg-white py-4 border-b border-slate-100"
-      }`}
-    >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16">
-          <Link href="/" className="flex-shrink-0 flex items-center">
-            <Logo className="h-10 w-10" />
-          </Link>
-
-          {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-8">
-            {navItems.map((item) => {
-              const isActive = isActiveLink(item.href);
-              if (item.dropdown) {
-                return (
-                  <div
-                    key={item.name}
-                    className="relative group py-2"
-                    onMouseEnter={() => setActiveDropdown(item.name)}
-                    onMouseLeave={() => setActiveDropdown(null)}
-                  >
-                    <Link
-                      href={item.href}
-                      className={`flex items-center space-x-1 font-semibold uppercase tracking-wider text-xs transition-colors duration-200 ${
-                        isActive ? "text-[#e11d48] font-bold" : "text-slate-700 hover:text-[#1a3c6e]"
-                      }`}
-                    >
-                      <span>{item.name}</span>
-                      <ChevronDown className="w-3.5 h-3.5" />
-                    </Link>
-                    <div
-                      className={`absolute left-0 mt-2 w-64 bg-white border border-slate-100 rounded-lg shadow-xl py-2 transform transition-all duration-300 origin-top-left ${
-                        activeDropdown === item.name
-                          ? "opacity-100 translate-y-0 scale-100 pointer-events-auto"
-                          : "opacity-0 -translate-y-2 scale-95 pointer-events-none"
-                      }`}
-                    >
-                      {item.dropdown.map((subItem) => (
-                        <Link
-                          key={subItem.name}
-                          href={subItem.href}
-                          className="block px-4 py-2 text-xs font-medium text-slate-700 hover:bg-slate-50 hover:text-[#1a3c6e] transition-colors"
-                        >
-                          {subItem.name}
-                        </Link>
-                      ))}
-                    </div>
-                  </div>
-                );
-              }
-              return (
-                <Link
-                  key={item.name}
-                  href={item.href}
-                  className={`font-semibold uppercase tracking-wider text-xs transition-colors duration-200 ${
-                    isActive ? "text-[#e11d48] font-bold" : "text-slate-700 hover:text-[#1a3c6e]"
-                  }`}
-                >
-                  {item.name}
-                </Link>
-              );
-            })}
-            <Link
-              href="/contact#get-in-touch"
-              className="bg-[#1a3c6e] hover:bg-[#25559c] text-white text-xs uppercase font-bold tracking-widest px-5 py-2.5 rounded-full transition-all duration-300 shadow-sm hover:shadow-md hover:-translate-y-0.5"
-            >
-              Get In Touch
+    <>
+      <nav
+        className={`sticky top-0 z-50 transition-all duration-300 w-full ${
+          isScrolled
+            ? "bg-white/95 backdrop-blur-md shadow-md border-b border-slate-100 py-3"
+            : "bg-white py-4 border-b border-slate-100"
+        }`}
+      >
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex items-center justify-between h-16">
+            <Link href="/" className="flex-shrink-0 flex items-center">
+              <Logo className="h-10 w-10" />
             </Link>
-          </div>
 
-          {/* Mobile Menu Button */}
-          <div className="flex md:hidden">
-            <button
-              onClick={() => setIsOpen(!isOpen)}
-              className="relative z-50 inline-flex items-center justify-center p-2 rounded-md text-slate-700 hover:text-[#1a3c6e] transition-colors"
-              aria-label={isOpen ? "Close menu" : "Open menu"}
-            >
-              {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
-            </button>
+            {/* Desktop Navigation */}
+            <div className="hidden md:flex items-center space-x-8">
+              {navItems.map((item) => {
+                const isActive = isActiveLink(item.href);
+                if (item.dropdown) {
+                  return (
+                    <div
+                      key={item.name}
+                      className="relative group py-2"
+                      onMouseEnter={() => setActiveDropdown(item.name)}
+                      onMouseLeave={() => setActiveDropdown(null)}
+                    >
+                      <Link
+                        href={item.href}
+                        className={`flex items-center space-x-1 font-semibold uppercase tracking-wider text-xs transition-colors duration-200 ${
+                          isActive ? "text-[#e11d48] font-bold" : "text-slate-700 hover:text-[#1a3c6e]"
+                        }`}
+                      >
+                        <span>{item.name}</span>
+                        <ChevronDown className="w-3.5 h-3.5" />
+                      </Link>
+                      <div
+                        className={`absolute left-0 mt-2 w-64 bg-white border border-slate-100 rounded-lg shadow-xl py-2 transform transition-all duration-300 origin-top-left ${
+                          activeDropdown === item.name
+                            ? "opacity-100 translate-y-0 scale-100 pointer-events-auto"
+                            : "opacity-0 -translate-y-2 scale-95 pointer-events-none"
+                        }`}
+                      >
+                        {item.dropdown.map((subItem) => (
+                          <Link
+                            key={subItem.name}
+                            href={subItem.href}
+                            className="block px-4 py-2 text-xs font-medium text-slate-700 hover:bg-slate-50 hover:text-[#1a3c6e] transition-colors"
+                          >
+                            {subItem.name}
+                          </Link>
+                        ))}
+                      </div>
+                    </div>
+                  );
+                }
+                return (
+                  <Link
+                    key={item.name}
+                    href={item.href}
+                    className={`font-semibold uppercase tracking-wider text-xs transition-colors duration-200 ${
+                      isActive ? "text-[#e11d48] font-bold" : "text-slate-700 hover:text-[#1a3c6e]"
+                    }`}
+                  >
+                    {item.name}
+                  </Link>
+                );
+              })}
+              <Link
+                href="/contact#get-in-touch"
+                className="bg-[#1a3c6e] hover:bg-[#25559c] text-white text-xs uppercase font-bold tracking-widest px-5 py-2.5 rounded-full transition-all duration-300 shadow-sm hover:shadow-md hover:-translate-y-0.5"
+              >
+                Get In Touch
+              </Link>
+            </div>
+
+            {/* Mobile Menu Button */}
+            <div className="flex md:hidden">
+              <button
+                onClick={() => setIsOpen(!isOpen)}
+                className="relative z-50 inline-flex items-center justify-center p-2 rounded-md text-slate-700 hover:text-[#1a3c6e] transition-colors"
+                aria-label={isOpen ? "Close menu" : "Open menu"}
+              >
+                {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+              </button>
+            </div>
           </div>
         </div>
-      </div>
+      </nav>
 
-      {/* Mobile Slide-in Sidebar */}
+      {/* Mobile Slide-in Sidebar (outside nav to avoid z-index stacking) */}
       <div
-        className={`md:hidden fixed inset-0 z-40 transition-all duration-500 ${
+        className={`md:hidden fixed inset-0 z-[60] transition-all duration-500 ${
           isOpen ? "pointer-events-auto" : "pointer-events-none"
         }`}
       >
@@ -216,6 +218,6 @@ export default function Navbar() {
           </div>
         </div>
       </div>
-    </nav>
+    </>
   );
 }
